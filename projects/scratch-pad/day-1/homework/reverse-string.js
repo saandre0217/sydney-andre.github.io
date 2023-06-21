@@ -21,8 +21,13 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
+    //declare var for output
+    //use for loop starting with last letter and ending with first, decrementing
+    var output = '';
+    for (var i = input.length - 1; i >= 0; i--) {
+      output += input[i]
+    }
+    return output
     
     
     // YOUR CODE GOES ABOVE HERE //

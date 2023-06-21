@@ -82,7 +82,7 @@ console.log(toDashCase('Hello World'))
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
     //create if statement using [] and == to compare first character
-    if (string[0].localeCompare(char)) {
+    if (string[0].toLowerCase() === char.toLowerCase()) {
     return true;
     } else {
     return false;
@@ -106,7 +106,7 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-    if (string.slice(-1).localeCompare(char)) {
+    if (string.slice(-1).toUpperCase() === char.toUpperCase()) {
         return true; 
     } else {
         return false;
@@ -123,8 +123,8 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+    var twoStrings = stringOne + stringTwo;
+    return twoStrings
 
     // YOUR CODE ABOVE HERE //
 }
@@ -142,8 +142,7 @@ function concat(stringOne, stringTwo) {
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
-
-
+    return args.join('')
     // YOUR CODE ABOVE HERE //
 }
 
@@ -158,8 +157,11 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+    if (stringOne.length > stringTwo.length) {
+        return stringOne;
+    } else {
+        return stringTwo
+    }
 
     // YOUR CODE ABOVE HERE //
 }
@@ -173,7 +175,7 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    return stringTwo.localeCompare(stringOne);
 
 
     // YOUR CODE ABOVE HERE //
@@ -189,7 +191,7 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    return stringOne.localeCompare(stringTwo);
 
 
 
