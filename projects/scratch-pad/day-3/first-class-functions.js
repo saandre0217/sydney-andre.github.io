@@ -78,14 +78,12 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    return function(y){
         var modResults = [];
         for (var i = 0; i < strings.length; i++){
             modResults.push(modify(strings[i]));
             
         }
         return modResults
-    }
     
     
     
@@ -103,9 +101,13 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    for (var i = 0; i < strings.length; i++) {
+        if (test(strings[i]) === true) {
+            return true
+        } else {
+            return false
+        }
+    }
     
     // YOUR CODE ABOVE HERE //
 }
