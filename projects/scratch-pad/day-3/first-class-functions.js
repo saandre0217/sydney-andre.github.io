@@ -80,8 +80,9 @@ function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
     return function(y){
         var modResults = [];
-        for (var i = 0; i <= strings.length; i++){
-            modResults.push(strings.toUpperCase[i])
+        for (var i = 0; i < strings.length; i++){
+            modResults.push(modify(strings[i]));
+            
         }
         return modResults
     }
