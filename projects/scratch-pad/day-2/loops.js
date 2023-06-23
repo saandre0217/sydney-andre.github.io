@@ -123,10 +123,11 @@ function printObjectValuesInReverse(object) {
   }
 
   for (var i = reverseValues.length - 1; i >= 0; i--){
-    console.log(reverseValues[i])
+   console.log(reverseValues[i])
 
   }
   
+
   
   // YOUR CODE ABOVE HERE //
 }
