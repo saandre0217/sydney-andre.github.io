@@ -23,7 +23,22 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
+    //init collection var
+    var rangeCollect = [];
+    //create if statment to run for loop if start is less than and loop 2 if start is greater than
+    if(start < end){
+        //create for loop
+        for (var i = start; i <= end; i++){
+            rangeCollect.push(i);
+        } 
+        return rangeCollect;
+    }
+    if(start > end){
+        for(var i = start; i >= end; i--){
+            rangeCollect.push(i);
+        }
+        return rangeCollect
+    }
     
     
     
