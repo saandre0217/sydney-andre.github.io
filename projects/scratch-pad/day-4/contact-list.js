@@ -54,22 +54,55 @@ function makeContactList() {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
-        }
+        },
         //addContact(contact): takes a contact object to be added to the contact list
-        //use dot notation to add object
-        addContact: function(obj) {
-            return contacts.obj;
-        }
+        //use push method to add contact obj to array
+        addContact: function (contact){
+            contacts.push(contact);
+            return contacts;
+        },
         /*findContact(fullName): takes a full-name String, like 'Max Gaudin', and 
         returns the contact object if found in the contacts-list, or, 
         undefined if the fullName does not match any contacts in the list.*/
-        findContact: function(string){
-            //create for loop to search for string
-            
+        //thought to use a for loop, but full name is not a key in the obj
+        /*for(var i = 0; i < contacts.length; i++){
+                if(fullName === contacts[i].fullName){
+                    return fullName;
+                } else {
+                    return undefined;
+                }
+            }
+            */
+        //use .find method?
+        findContact: function(fullName){
+                return contacts.find(function(contact) {
+                  return contact.fullName === fullName;
+                });
+              },
+        // /*removeContact(contact): takes a contact object to be removed from 
+        //the contact-list. //research splice method*/
+        removeContact: function(contact){
+            //using slice method create function that removes object
+            //find index of contacts using index of method
+            var index = contacts.indexOf(contact);
+            contacts.slice(index, index);
+            return contacts
+            },
+        /*add a printAllContactNames() Function to your makeContactList() factory. 
+        The printAllContactNames() Function should 
+        return a String formated with all the full-names separated 
+        with a line-break*/
+        printAllContactNames: function(){
+            contacts.join(\n);
+            return contacts;
         }
+
+       
+
 
     }
 }
+
 
 
 
