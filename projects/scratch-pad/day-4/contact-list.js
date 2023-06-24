@@ -35,9 +35,14 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
+    //return object using param
+    return {
+        id: id,
+        nameFirst: nameFirst,
+        nameLast: nameLast
+    }
 
 } 
-
 
 function makeContactList() {
     /*
@@ -50,6 +55,19 @@ function makeContactList() {
         length: function() {
             return contacts.length;
         }
+        //addContact(contact): takes a contact object to be added to the contact list
+        //use dot notation to add object
+        addContact: function(obj) {
+            return contacts.obj;
+        }
+        /*findContact(fullName): takes a full-name String, like 'Max Gaudin', and 
+        returns the contact object if found in the contacts-list, or, 
+        undefined if the fullName does not match any contacts in the list.*/
+        findContact: function(string){
+            //create for loop to search for string
+            
+        }
+
     }
 }
 
