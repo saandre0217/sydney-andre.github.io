@@ -99,12 +99,13 @@ function makeContactList() {
         printAllContactNames: function(){
             //use for loop to return all first and last names
             //use join method to turn array into string
+            var allFullNames = [];
             for (var i = 0; i < contacts.length; i++){
                 var nameFull = contacts[i].nameFirst + ' ' + contacts[i].nameLast;
-                return nameFull; //i know this is stopping it from running through the entire loop, but I don't know how to fix that
+                allFullNames.push(nameFull);
             }
             
-            return nameFull.join('\n');
+            return allFullNames.join('\n');
         }
 
        
