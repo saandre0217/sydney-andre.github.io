@@ -75,18 +75,22 @@ function makeContactList() {
             */
         //use .find method?
         findContact: function(fullName){
-                return contacts.find(function(contact) {
-                  return contact.fullName === fullName;
-                });
-              },
+            var full = ''
+            for (var i = 0; i < contacts.length; i++){
+                full = contacts[i].nameFirst + ' ' + contacts[i].nameLast;
+                if(full === fullName){
+                    return contacts[i];
+                }
+            } 
+        },
         // /*removeContact(contact): takes a contact object to be removed from 
         //the contact-list. //research splice method*/
         removeContact: function(contact){
             //using slice method create function that removes object
             //find index of contacts using index of method
             var index = contacts.indexOf(contact);
-            contacts.slice(index, index);
-            return contacts
+            var removed = contacts.splice(index, 1);
+            return removed;
             },
         /*add a printAllContactNames() Function to your makeContactList() factory. 
         The printAllContactNames() Function should 
