@@ -95,10 +95,12 @@ animals.push(pig);
  */
 var friends = [];
 function getRandom(animals){
-  var index = Math.random;
-  return index;
-}
-friends = animals[getRandom(animals)].name;
+  var randomIndex = Math.floor(Math.random() * animals.length);
+  return randomIndex;
+};
+var index = getRandom(animals);
+console.log(index);
+friends.push(animals[index].name);
 console.log(friends);
 animals[1]['friends'] = friends;
 
