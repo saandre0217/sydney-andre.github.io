@@ -12,19 +12,51 @@
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+function search(array, string){
+    //use for loop to iterate through array
+    //use if statement comparing string to name key
+    //return object if string === name
+    for (var i = 0; i < array.length; i++){
+        if(array[i].name.toUpperCase() === string.toUpperCase()){
+            return array[i];
+        } 
+    }
+    return null;
+}
+// var animalTwo = {
+//     name: 'Andre',
+//     age: 10,
+//     species: 'dog'
+// }
 
+// console.log(search(animalTwo, 'Andre'));
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+function replace(array, string, object){
+//use for loop to iterate through array
+//use if statement to compare string to name key
+//set array[i] = to object
+for(var i = 0; i < array.length; i++){
+    if(array[i].name.toUpperCase() === string.toUpperCase()){
+        array[i] = object;
+    }
+}
+}
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+function remove(array, string){
+    for(var i = 0; i < array.length; i++){
+        if(array[i].name.toUpperCase() === string.toUpperCase()){
+            array.splice(i, 1);
+        }
+    }
+}
 
 
 //////////////////////////////////////////////////////////////////////
