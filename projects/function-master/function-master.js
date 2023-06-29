@@ -3,7 +3,14 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-
+//create empty array
+//create for loop to return obj values in array
+//use push method
+var array = [];
+for(var key in object){
+    array.push(object[key]);
+}
+return array;
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,6 +18,17 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
+    //create empty array
+    //create empty string
+    //create for loop to return obj keys in array using push method
+    //use join methose to turn array into string
+var array = [];
+var string = '';
+for(var key in object){
+     array.push(key);
+     string = array.join(' ');
+}
+return string;
 
 }
 
@@ -19,6 +37,19 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
+    //create empty array
+    //create empty string
+    //create for loop to return obj values in array using push method
+    //use join methose to turn array into string
+var array = [];
+var string = '';
+for(var key in object){
+    if(typeof object[key] === 'string') {
+        array.push(object[key]);
+        string = array.join(' ');
+    }
+}
+return string;
     
 }
 
@@ -27,6 +58,11 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
+    if(Array.isArray(collection)) {
+        return 'array';
+    } else if(typeof collection === 'object'){
+        return 'object';
+    }
     
 }
 
