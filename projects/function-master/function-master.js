@@ -71,7 +71,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -79,6 +79,12 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
+    var array = [];
+    array.push(string.split(' '));
+    for (var i = 0; i < array.length; i++){
+    
+    }
+return array.join(' ');
     
 }
 
