@@ -78,7 +78,7 @@ function capitalizeWord(string) {
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function capitalizeAllWords(string) {
+function capitalizeAllWords(string) { //come back
     var array = [];
     array.push(string.split(' '));
     for (var i = 0; i < array.length; i++){
@@ -112,7 +112,12 @@ return name + ' is a ' + species
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function maybeNoises(object) {
+function maybeNoises(object) {//come back
+    if ('noises' in object && Array.isArray(object[noises])){
+        return object.noises.join(' ');
+    } else {
+        return 'there are no noises';
+    }
 
 }
 
@@ -121,6 +126,11 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
+    if(string.includes(word)){
+        return true;
+    } else {
+        return false;
+    }
 
 }
 
@@ -129,6 +139,8 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
+    object.friends.push(name);
+    return object
 
 }
 
@@ -136,7 +148,12 @@ function addFriend (name, object) {
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function isFriend(name, object) {
+function isFriend(name, object) { //come back: maybe can't use include method?
+    if(object.friends.includes(name)){
+        return true;
+    } else {
+        return false;
+    }
 
 }
 
@@ -145,7 +162,13 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+var arrayNonFriends = [];
+for(var i = 0; i < array.length; i++){
+    if(name !== array[i]){
+        arrayNonFriends.push(array[i]);
+    }
+}
+return arrayNonFriends;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -153,7 +176,8 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+object[key] = value;
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -169,7 +193,11 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
+var uniqueSet = [...new Set(array)]
+var uniqueArr = [];
+uniqueArr.push(uniqueSet);
 
+return uniqueArr;
 }
 
 //////////////////////////////////////////////////////////////////////
