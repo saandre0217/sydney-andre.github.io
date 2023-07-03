@@ -67,13 +67,12 @@ function add(array, object){
     //if those pass, check the is the name is unique using a for loop of the array
     if (object.name.length > 0 && object.species.length > 0){
       for(var i = 0; i < array.length; i++){
-            if(array[i].name === object.name){
-               return object;
-            } else {
+            if(array[i].name.toUpperCase() !== object.name.toUpperCase()){
                 array.push(object);
+            } else {
+                return object;
             }
     }
-  array.push(object)
   }
   return array
 }

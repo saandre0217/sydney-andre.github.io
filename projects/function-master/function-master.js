@@ -78,14 +78,22 @@ function capitalizeWord(string) {
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function capitalizeAllWords(string) { //come back
+function capitalizeAllWords(string) { 
+    //split string into array
+    //use for loop with split string to interate through each word in the string
+    //capitalize first letter of each word using cap formula
+    //push capitalized words into new array
+    //use join method to turn array back into string
     var array = [];
-    array.push(string.split(' '));
-    for (var i = 0; i < array.length; i++){
+    var splitString = string.split(' ');
     
+  for (var i = 0; i < splitString.length; i++){
+    var word = splitString[i];
+    var capString = word.charAt(0).toUpperCase() + word.slice(1)
+    array.push(capString)
     }
-return array.join(' ');
-    
+  var finalString = array.join(' ')
+  return finalString;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -113,12 +121,11 @@ return name + ' is a ' + species
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {//come back
-    if ('noises' in object && Array.isArray(object[noises])){
+    if (object.hasOwnProperty('noises') && Array.isArray(object.noises) && object.noises.length > 0){
         return object.noises.join(' ');
     } else {
         return 'there are no noises';
     }
-
 }
 
 //////////////////////////////////////////////////////////////////////
