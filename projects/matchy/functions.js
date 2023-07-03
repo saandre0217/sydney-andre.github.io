@@ -63,10 +63,19 @@ function remove(array, string){
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function add(array, object){
-    //use for in loop to check object value lengths
-    for (var keys in object){
-        
+    //check the length of the name and species key using if statement
+    //if those pass, check the is the name is unique using a for loop of the array
+    if (object.name.length > 0 && object.species.length > 0){
+      for(var i = 0; i < array.length; i++){
+            if(array[i].name === object.name){
+               return object;
+            } else {
+                array.push(object);
+            }
     }
+  array.push(object)
+  }
+  return array
 }
 
 
