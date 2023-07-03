@@ -4,13 +4,31 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 function triangles(x) { //needs param
-
+  let tri = '';
+  for(let i = 0; i < x; i++){
+    tri += '#';
+    console.log(tri);
+}
 }
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 function fizzBuzz() {
+    //use for loop start at 1, end at 15, increment
+    //if statement withing for loop using % 
+    for (var i = 1; i <= 15; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('fizzbuzz')
+        } else if (i % 3 === 0) {
+            console.log('fizz')
+        } else if (i % 5 === 0) {
+            console.log("buzz")
+        } else {
+            console.log(i)
+        }
+        
+    }
   
 }
 
@@ -19,7 +37,17 @@ function fizzBuzz() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(x) { //needs param
-
+var string = '';
+for(var i = 0; i < x; i++){
+  for(var j = 0; j < x; j++){
+    if(j % 2 === 0){
+      console.log(' ');
+    } 
+    if(j % 2 !== 0){
+      console.log('#');
+    }
+  }
+}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
