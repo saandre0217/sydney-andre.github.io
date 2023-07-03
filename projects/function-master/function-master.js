@@ -155,9 +155,9 @@ function addFriend (name, object) {
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function isFriend(name, object) { //come back: maybe can't use include method?
-    if(object.friends.includes(name)){
-        return true;
+function isFriend(name, object) { 
+    if(object.hasOwnProperty('friends') && object.friends.length > 0){
+        return object.friends.includes(name);
     } else {
         return false;
     }
@@ -169,14 +169,15 @@ function isFriend(name, object) { //come back: maybe can't use include method?
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-var arrayNonFriends = [];
-for(var i = 0; i < array.length; i++){
-    if(name !== array[i]){
-        arrayNonFriends.push(array[i]);
+    let arrayNonFriends = [];
+    for(let i = 0; i < array.length; i++){
+        let obj = array[i]
+      if(name !== obj.name && !obj.friends.includes(name)){
+        arrayNonFriends.push(obj.name)
+      }
+        }
+    return arrayNonFriends;
     }
-}
-return arrayNonFriends;
-}
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
@@ -192,7 +193,15 @@ return object;
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    //write for loop to interate through array
+    //wrtie for in loop to iterate through object keys
+    for(var i = 0; i < array.length; i++){
+        var arrayString = array[i];
+        if (object.hasOwnProperty(arrayString)){
+            delete object[arrayString];
+        }
+    }
+return array;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -200,11 +209,9 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-var uniqueSet = [...new Set(array)]
-var uniqueArr = [];
-uniqueArr.push(uniqueSet);
+var uniqueSet = [...new Set(array)];
 
-return uniqueArr;
+return uniqueSet;
 }
 
 //////////////////////////////////////////////////////////////////////
