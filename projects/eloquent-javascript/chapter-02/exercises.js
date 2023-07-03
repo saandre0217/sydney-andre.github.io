@@ -40,14 +40,15 @@ function drawChessboard(x) { //needs param
 var string = '';
 for(var i = 0; i < x; i++){
   for(var j = 0; j < x; j++){
-    if(j % 2 === 0){
-      console.log(' ');
-    } 
-    if(j % 2 !== 0){
-      console.log('#');
+    if((i + j) % 2 === 0){
+      string += ' ';
+    } else {
+      string += '#';
     }
   }
+  string += '\n';
 }
+console.log(string);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
