@@ -13,3 +13,11 @@
 6) In terminal, type => npm install -g opspark
 7) In terminal, type => os install
 8) Select project to install
+
+# How to make a new token
+1) go to GitHub.com/settings/tokens
+2) click generate new toke (classic)
+3) name it the creation date
+4) make sure all scopes are clicked
+5) generate new
+6) copy inot bootcamp gdoc and delete the last one
