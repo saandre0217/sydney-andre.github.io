@@ -21,3 +21,15 @@
 4) make sure all scopes are clicked
 5) generate new
 6) copy inot bootcamp gdoc and delete the last one
+
+# How to re set up gitpod
+1) gitpod.io/account
+2) delete account
+3) continue with git hub
+4) create account again--software eng; personal; other
+5) got to github repo and copy url
+6) go back to workspace
+7) in url delete workspace and type # then copy repo url
+8) you will need to reinstall live server by going to extentions (three squares)
+9) gitpod.io/integrations
+10) edit permissions and all boxes are checked
