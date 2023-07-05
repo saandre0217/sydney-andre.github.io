@@ -136,14 +136,14 @@ _.last = function(array, number){
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 _.indexOf = function(array, value){
-    for(let i = 0; i < array.length; i++){
+    for(var i = 0; i < array.length; i++){
         if(array[i] === value){
             return i;
-        } else if(array[i] !== value){
-            return -1
+        } 
         }
+        return -1
     }
-}
+
 
 
 /** _.contains
@@ -160,6 +160,10 @@ _.indexOf = function(array, value){
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+_.contains = function(array, value){
+    var result = array.includes(value) ? true : false
+    return result;
+}
 
 
 /** _.each
@@ -202,6 +206,15 @@ _.each = function(collection, func){
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function(array){
+    var uniqArr = [];
+    for (var i = 0; i < array.length; i++){
+        if(uniqArr.indexOf(array[i]) === -1){
+            uniqArr.push(array[i]);
+        }
+    }
+return uniqArr;
+}
 
 /** _.filter
 * Arguments:
@@ -218,7 +231,15 @@ _.each = function(collection, func){
 * Extra Credit:
 *   use _.each in your implementation
 */
-
+_.filter = function(array, func){
+   var newArr = [];
+    for(var i = 0; i < array.length; i++){
+        if(func(array[i], i, array) === true){
+            newArr.push(array[i])
+        }
+    }
+    return newArr;
+}
 
 /** _.reject
 * Arguments:
@@ -232,6 +253,16 @@ _.each = function(collection, func){
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+_.reject = function(array, func){
+    var newArr = [];
+    for(var i = 0; i < array.length; i++){
+        if(func(array[i], i, array) !== true){
+            newArr.push(array[i])
+        }
+    }
+    return newArr;
+}
 
 
 /** _.partition
@@ -252,7 +283,21 @@ _.each = function(collection, func){
 *   }); -> [[2,4],[1,3,5]]
 }
 */
-
+_.partition = function(array, func){
+    var newArr = [];
+    var truthyArr = [];
+    var falseyArr = [];
+    for(var i = 0; i < array.length; i++){
+        if(func(array[i], array)){
+            truthyArr.push(array[i]);
+        } else{
+            falseyArr.push(array[i]);
+        }
+    }
+    newArr.push(truthyArr);
+    newArr.push(falseyArr);
+    return newArr;
+}
 
 /** _.map
 * Arguments:
@@ -283,7 +328,7 @@ _.each = function(collection, func){
 */
 
 
-/** _.every
+/** _.every similar to allStringsPass from scratch pad
 * Arguments:
 *   1) A collection
 *   2) A function
@@ -303,6 +348,20 @@ _.each = function(collection, func){
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+
+_.every = function(collection, func){
+    if(Array.isArray(collection)){
+        //need another if/else statment in case there is no func
+        if(!func){
+            //for loop{if not truthy}
+        } else {
+            //for loop{if the result of running the function is false}
+        }
+    } else {
+
+    }
+    return true
+}
 
 
 /** _.some
