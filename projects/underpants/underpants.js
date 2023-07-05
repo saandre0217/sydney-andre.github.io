@@ -353,12 +353,20 @@ _.every = function(collection, func){
     if(Array.isArray(collection)){
         //need another if/else statment in case there is no func
         if(!func){
-            //for loop{if not truthy}
+            for(let i = 0; i < collection.length){
+                if(!collection[i]){
+                    return false;
+                } 
+            }
         } else {
-            //for loop{if the result of running the function is false}
+            for(let i = 0; i < collection.length){
+                if(!func(collection[i], i, collection)){
+                    return false;
+                } 
+            }
         }
     } else {
-
+        
     }
     return true
 }
