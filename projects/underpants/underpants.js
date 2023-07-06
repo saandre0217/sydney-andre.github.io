@@ -314,6 +314,23 @@ _.partition = function(array, func){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
+_.map = function(collection, func){
+    let newArray = [];
+    if(Array.isArray(collection)){
+        for(let i = 0; i < collection.length; i++){
+           let arrFuncCall = func(collection[i], i, collection);
+           newArray.push(arrFuncCall);
+        }
+
+
+    } else{
+        for(var key in collection){
+            let objFuncCall = func(collection[key], key, collection);
+            newArray.push(objFuncCall);
+        }
+    }
+    return newArray;
+}
 
 
 /** _.pluck
@@ -326,6 +343,18 @@ _.partition = function(array, func){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+_.pluck = function(array, property){
+    let newArray = [];
+    for(let i = 0; i < array.length; i++){
+        let obj = array[i];
+        for(let key in obj){
+            if (key === property){
+                newArray.push(obj[key]);
+            }
+        }
+    }
+    return newArray;
+}
 
 
 /** _.every similar to allStringsPass from scratch pad
@@ -353,22 +382,35 @@ _.every = function(collection, func){
     if(Array.isArray(collection)){
         //need another if/else statment in case there is no func
         if(!func){
-            for(let i = 0; i < collection.length){
+            for(let i = 0; i < collection.length; i++){
                 if(!collection[i]){
                     return false;
                 } 
             }
         } else {
-            for(let i = 0; i < collection.length){
+            for(let i = 0; i < collection.length; i++){
                 if(!func(collection[i], i, collection)){
                     return false;
                 } 
             }
         }
     } else {
+        if(!func){
+            for(var key in collection){
+                if(!collection[i]){
+                    return false;
+                }
+            }
+        }  else {
+            for( var key in collection){
+                if(!func(collection[key], key, collection)){
+                    return false;
+                }
+            }
+        }
         
     }
-    return true
+    return true;
 }
 
 
@@ -392,6 +434,40 @@ _.every = function(collection, func){
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+_.some = function(collection, func){
+    if(Array.isArray(collection)){
+        //need another if/else statment in case there is no func
+        if(!func){
+            for(let i = 0; i < collection.length; i++){
+                if(collection[i]){
+                    return true;
+                } 
+            }
+        } else {
+            for(let i = 0; i < collection.length; i++){
+                if(func(collection[i], i, collection)){
+                    return true;
+                } 
+            }
+        }
+    } else {
+        if(!func){
+            for(var key in collection){
+                if(collection[i]){
+                    return true;
+                }
+            }
+        }  else {
+            for( var key in collection){
+                if(func(collection[key], key, collection)){
+                    return true;
+                }
+            }
+        }
+        
+    }
+    return false;
+}
 
 
 /** _.reduce
@@ -428,6 +504,14 @@ _.every = function(collection, func){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+_.extend = function (obj1, ...obj2){
+    for(let i = 0; i < obj2.length; i++){
+        for(let key in obj2[i]){
+            obj1[key] = obj2[i][key]
+        }
+    }
+    return obj1;
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
