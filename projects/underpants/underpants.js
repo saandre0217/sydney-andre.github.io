@@ -488,7 +488,26 @@ _.some = function(collection, func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+_.reduce = function(array, func, seed){
+    let result;
+    // determine if seed wasn't passed in
+    if(seed === undefined){
+        result = array[0];
+       for(let i = 1; i < array.length; i++){
+        result = func(result, array[i], i)
+       }
+    } else {
+        result = seed;
+        for(let i = 0; i < array.length; i++){
+            result = func(result, array[i], i)
+            //reassign result to what the callback function returns
+        }
+    }
 
+
+    return result;
+}
+// reduce can return anything-- iterates through an input array, calling a callback function to 'accumulate' a single return
 
 /** _.extend
 * Arguments:
