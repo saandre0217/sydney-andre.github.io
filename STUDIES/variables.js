@@ -19,7 +19,12 @@
  * declared using the keyword var, will always be in the global or function scope, meaning even if the variable is 
  * declared in a block of code, it can be recalled outside of the code block. This is not true for variables declared
  * using the keywords let and const.  
- * 3. hoisting
+ * 3. Hoisting refers to the process by which the interpreter loads specific variables before executing the code. 
+ * The type of declarative key word determines when a variable is hoisted. Variables with the declarative keyword,
+ * var are hoisted to the top of the code after any function declarations and before the code. Let and const follow 
+ * the same general rules, but have additional rules that make hoisting those variables different. For examples,
+ * because let and const can be block scoped, this rule trumps any hoisting, so let and const variables declared inside 
+ * of a code block are not accessible outside of that block.
  */
 
 // 1. declaration & assignment //
@@ -59,3 +64,17 @@ stage would result in undefined being logged to the console. */
     console.log(favFood); //prints error: Assignment to constant variable.
     const constantVar = 'Hey!'
     console.log(constantVar) //prints Hey!
+// 3. Hoisting //
+/**
+ * below is an example of a program that will run without errors because of hoisting. Even though the
+ * function is called before the function is declared, the function is hoisted above the call and allows
+ * the code to run properly.
+ */
+var myAge = 27
+console.log(howOld(myAge));
+
+function howOld(age){
+    return 'My age is' + age;
+}
+
+
