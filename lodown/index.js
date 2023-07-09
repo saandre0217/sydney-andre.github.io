@@ -374,11 +374,14 @@ function some(collection, func){
 module.exports.some = some;
 
 /**16
- * reduce:
+ * reduce: Designed to take in an array, function, and seed to return an accumulated 
+ * value based on the action the function performs on the array
  * @param {array}: the array to iterate over
- * @param {function}: 
- * @param {seed}:
- * @return {value}:
+ * @param {function}: action or test to be done to each element of the arry
+ * @param {seed}: value that can be any datatype and allows the result datatype to be 
+ * flexible
+ * @return {value}: datatype is based on the seed value or lack there of and is an 
+ * accumulation of the values based on the argument function's action or test
  */
 function reduce(array, func, seed){
     let result;
