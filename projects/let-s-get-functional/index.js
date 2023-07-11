@@ -70,39 +70,40 @@ var firstLetterCount = function(array, char){
 };
 
 var friendFirstLetterCount = function(array, customer, char){
-    //iterate through array
+    //use filter method to find customer and set to a variable
     /*if customer is found, search thier friends key to see if their friends 
     name starts with char
      */
     //count number of friends found
-    //array[i].friends.name[0]
-    // let friends = [];
-    // for (let i = 0; i < array.length; i++){
-    //     if(array[i].name === customer){
-    //         if(array[i].friends.name[0].toUpperCase() === char.toUpperCase()){
-    //             friends.push(array[i].friends.name)
-    //         }
-    //     }
-    //     return friends
-    // }
-    // return friends.length;
-    for(let i = 0; i < array.length; i++){
-        if(array[i].name === customer){
-            let friendsArr = _.pluck(array, friends)
-        }
-    }
-    
-return friendsArr.length;
-
-};
+let friendCount = [];
+let customerObj = array.filter(function(cust){
+    return cust.name === customer;
+})
+let friendsObj = customerObj[0]['friends']
+for(let i = 0; i < friendsObj.length; i++){
+  if(friendsObj[i]['name'][0].toUpperCase() === char.toUpperCase()){
+    friendCount.push(friendsObj[i]['name'])
+}
+}
+return friendCount.length;
+}
 
 var friendsCount = function(array, name){
-    // let friends = _.filter(array, function(customer){
-    //     return customer.friends.name === name;
-    // })
-    // return friends
-    
-};
+    //access friends object to look for name
+        //customer array > friends array  
+    //if name is found push customer name to array
+let customers = []
+   for(let i = 0; i < array.length; i++){
+    var friendsArr = array[i].friends
+    for(let x = 0; x < friendsArr.length; x++){
+        if(friendsArr[x].name === name){
+            customers.push(array[i].name)
+        }
+    }
+   
+}
+return customers;
+}
 
 var topThreeTags;
 
