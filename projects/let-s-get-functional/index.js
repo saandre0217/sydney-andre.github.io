@@ -29,7 +29,12 @@ return males.length;
 };
 
 var femaleCount = function(array) {
-    
+_.reduce(array, function(accumulator, customer){
+    if(customer.gender === 'female'){
+        return accumulator + 1;
+    }
+}, 0);
+return accumulator;
     };
 
 var oldestCustomer = function(array){
@@ -43,7 +48,16 @@ var oldestCustomer = function(array){
     return oldest.name
 };
 
-var youngestCustomer;
+var youngestCustomer= function(array){
+    let youngest =_.reduce(array, function(accumulator, current){
+        if(accumulator.age < current.age){
+            return accumulator;
+        } else {
+            return current;
+        }
+    })
+    return youngest.name
+};
 
 var averageBalance; //skip
 
