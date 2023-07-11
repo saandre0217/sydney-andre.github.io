@@ -29,12 +29,13 @@ return males.length;
 };
 
 var femaleCount = function(array) {
-_.reduce(array, function(accumulator, customer){
-    if(customer.gender === 'female'){
-        return accumulator + 1;
+let females = _.reduce(array, function(accumulator, current){
+    if(current.gender === 'female'){
+        accumulator += 1;
     }
+    return accumulator;
 }, 0);
-return accumulator;
+return females;
     };
 
 var oldestCustomer = function(array){
@@ -61,11 +62,29 @@ var youngestCustomer= function(array){
 
 var averageBalance; //skip
 
-var firstLetterCount;
+var firstLetterCount = function(array, char){
+    let count = _.filter(array, function(customer){
+        return customer.name[0].toUpperCase() === char.toUpperCase();
+    })
+    return count.length;
+};
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function(array, customer, char){
+    let friendCount = _.filter(array, function(customer){
+        if(customer === customer){
+        return customer.friends.name[0].toUpperCase() === char.toUpperCase();
+        }
+    })
+    return friendCount.length;
+};
 
-var friendsCount;
+var friendsCount = function(array, name){
+    // let friends = _.filter(array, function(customer){
+    //     return customer.friends.name === name;
+    // })
+    // return friends
+    
+};
 
 var topThreeTags;
 
