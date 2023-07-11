@@ -70,12 +70,30 @@ var firstLetterCount = function(array, char){
 };
 
 var friendFirstLetterCount = function(array, customer, char){
-    let friendCount = _.filter(array, function(customer){
-        if(customer === customer){
-        return customer.friends.name[0].toUpperCase() === char.toUpperCase();
+    //iterate through array
+    /*if customer is found, search thier friends key to see if their friends 
+    name starts with char
+     */
+    //count number of friends found
+    //array[i].friends.name[0]
+    // let friends = [];
+    // for (let i = 0; i < array.length; i++){
+    //     if(array[i].name === customer){
+    //         if(array[i].friends.name[0].toUpperCase() === char.toUpperCase()){
+    //             friends.push(array[i].friends.name)
+    //         }
+    //     }
+    //     return friends
+    // }
+    // return friends.length;
+    for(let i = 0; i < array.length; i++){
+        if(array[i].name === customer){
+            let friendsArr = _.pluck(array, friends)
         }
-    })
-    return friendCount.length;
+    }
+    
+return friendsArr.length;
+
 };
 
 var friendsCount = function(array, name){
