@@ -48,22 +48,36 @@ var isEven = function(n) {
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
-// var sumBelow = function(n, sum=0) {
-//   if(n === 0){
-//     return sum;
-//   }
-// if (n > 0){
-//  sum += n - 1;
-// } if (n < 0){
-//   sum += n + 1;
-// }
-// return sumBelow(n - 1)
+var sumBelow = function(n, sum=0) {
+  if(n === 0){
+    return sum;
+  }
+if (n > 0){
+ sum += n - 1;
+ return sumBelow(n - 1, sum)
+} if (n < 0){
+  sum += n + 1;
+  return sumBelow(n + 1, sum)
+}
 
 };
 
+
+
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
+var range = function(x, y, output=[]) {
+
+  if(x < y - 1){
+    output.push(x + 1);
+    return range(x + 1, y, output)
+  } else if (x - 1 > y){
+    output.push(x - 1);
+    return range(x - 1, y, output)
+  } else {
+    return output;
+  }
+
 };
 
 // 7. Compute the exponent of a number.
@@ -82,11 +96,25 @@ var powerOfTwo = function(n) {
 };
 
 // 9. Write a function that accepts a string a reverses it.
-var reverse = function(string) {
+var reverse = function(string, output = '') {
+  if(string.length === 0){
+    return output;
+  }
+output += string[string.length - 1]
+return reverse(string.substring(0, string.length - 1), output)
 };
 
 // 10. Write a function that determines if a string is a palindrome.
-var palindrome = function(string) {
+var palindrome = function(string, output='') { //this issue is that the else if statement is going to be true before we get 
+  //the output created--figure out how to fix the else if statement
+  if(string.toLowerCase() === output.toLowerCase()){
+    return true;
+  } else if (string !== output) {
+    return false
+  }
+  
+output += string[string.length - 1]
+return palindrome(string.substr(0, string.length - 1), output)
 };
 
 // SKIP11. Write a function that returns the remainder of x divided by y without using the
