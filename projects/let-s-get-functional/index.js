@@ -60,7 +60,21 @@ var youngestCustomer= function(array){
     return youngest.name
 };
 
-var averageBalance; //skip
+var averageBalance = function(array){
+    let balsum = array.reduce((acc, curr) => {
+        acc += curr.balance;
+        return acc;
+    }, 0);
+    let balnum = array.reduce((acc, curr) => {
+        if(curr.balance){
+            acc += 1;}
+            return acc;
+
+    }, 0);
+    let average = balsum / balnum;
+    return average;
+};
+
 
 var firstLetterCount = function(array, char){
     let count = _.filter(array, function(customer){
@@ -105,7 +119,16 @@ let customers = []
 return customers;
 }
 
-var topThreeTags;
+var topThreeTags = function(array){
+    let top = array.reduce((acc, curr) => {
+        acc.push(curr.tags);
+        return acc;
+    }, [])
+
+    let tagCount = top.reduce((acc, curr) => {
+
+    }, 0)
+};
 
 var genderCount = function(array){
     let summary = array.reduce((acc1, curr1) => {
