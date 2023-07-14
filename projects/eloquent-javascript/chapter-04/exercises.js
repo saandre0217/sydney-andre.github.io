@@ -2,24 +2,24 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(num1, num2, step) { //HW
-  let rangeArr = []
-if(step === ''){
-  if(num1 === num2){
-    return [];
-  } else {
-    for(let i = num1; i <= num2; i++){
-      rangeArr.push(i)
-    }
-  }
-} else {
-  for(let i = num1; i <= num2; i++){
-    i += step;
-    rangeArr.push(i);
-  }
-} 
-return rangeArr;
-}
+// function range(num1, num2, step) { //HW
+//   let rangeArr = []
+// if(step === ''){
+//   if(num1 === num2){
+//     return [];
+//   } else {
+//     for(let i = num1; i <= num2; i++){
+//       rangeArr.push(i)
+//     }
+//   }
+// } else {
+//   for(let i = num1; i <= num2; i++){
+//     i += step;
+//     rangeArr.push(i);
+//   }
+// } 
+// return rangeArr;
+// }
 
 
 
@@ -55,16 +55,29 @@ function reverseArrayInPlace() { //HW
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
+function arrayToList(array) {
+let rest = null;
 
+for (let i = array.length - 1; i >= 0; i--){
+  rest = {value: array[i], rest: rest};
+}
+return rest
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
+function listToArray(list, output=[]) {
+if (list.rest === null){
+output.push(list.value);
+return output;
+}
+//recursion
+  //take the current number at value and push into output
+  output.push(list.value);
 
+return listToArray(list.rest, output)
 }
 
 ////////////////////////////////////////////////////////////////////////////////

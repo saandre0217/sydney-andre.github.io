@@ -107,7 +107,34 @@ return customers;
 
 var topThreeTags;
 
-var genderCount;
+var genderCount = function(array){
+    let summary = array.reduce((acc1, curr1) => {
+    if(curr1.gender === 'female'){
+     acc1.female = array.reduce((femtotal, customer) => {
+       if(customer.gender === 'female'){
+         femtotal += 1;
+       }
+       return femtotal;
+     }, 0)
+    } else if (curr1.gender === 'male'){
+     acc1.male = array.reduce((mtotal, customer) => {
+       if(customer.gender === 'male'){
+         mtotal += 1;
+       }
+       return mtotal;
+     }, 0)
+    } else if (curr1.gender === 'non-binary'){
+     acc1['non-binary'] = array.reduce((nbtotal, customer) => {
+       if(customer.gender === 'non-binary'){
+         nbtotal += 1;
+       }
+       return nbtotal;
+     }, 0)
+    }
+     return acc1;
+    }, {})
+    return summary;
+ };
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
