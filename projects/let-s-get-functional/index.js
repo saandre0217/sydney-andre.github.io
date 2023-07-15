@@ -66,10 +66,8 @@ var averageBalance = function(array){
         return acc;
     }, 0);
     let balnum = array.reduce((acc, curr) => {
-        if(curr.balance){
-            acc += 1;}
+            acc += 1;
             return acc;
-
     }, 0);
     let average = balsum / balnum;
     return average;

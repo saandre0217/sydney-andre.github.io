@@ -85,7 +85,17 @@ var range = function(x, y, output=[]) {
 // 8^2 = 8 x 8 = 64.  Here, 8 is the base and 2 is the exponent.
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-var exponent = function(base, exp) {
+var exponent = function(base, exp, output=1) {
+  if(exp === 0){
+    return output;
+  }
+  if (exp > 0){
+  output *= base;
+  return exponent(base, exp - 1, output);
+  } else if(exp < 0){
+    output /= base;
+    return exponent(base, exp + 1, output);
+  }
 };
 
 // 8. Determine if a number is a power of two.
@@ -93,6 +103,14 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+if (n === 1){
+  return true;
+} else if (n <= 0){
+  return false;
+ } else {
+  return powerOfTwo(n / 2) && n % 2 === 0;
+ }
+
 };
 
 // 9. Write a function that accepts a string a reverses it.
@@ -107,9 +125,10 @@ return reverse(string.substring(0, string.length - 1), output)
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string, output='') { //this issue is that the else if statement is going to be true before we get 
   //the output created--figure out how to fix the else if statement
+  string = string.replace(/\s/g, '');
   if(string.toLowerCase() === output.toLowerCase()){
     return true;
-  } else if (string !== output) {
+  } else if (string.length === 0) {
     return false
   }
   
@@ -122,27 +141,38 @@ return palindrome(string.substr(0, string.length - 1), output)
 // modulo(5,2) // 1
 // modulo(17,5) // 2
 // modulo(22,6) // 4
-var modulo = function(x, y) {
-};
+// var modulo = function(x, y) {
+// };
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
-var multiply = function(x, y) {
+var multiply = function(x, y, output=0) {
+  if(y === 0){
+    return output;
+  }
+  if(y > 0){
+  output += x;
+  return multiply(x, y - 1, output)
+  } else if(y < 0){
+    output += x;
+    return multiply(x, y + 1, output)
+  }
+
 };
 
 // SKIP13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
-var divide = function(x, y) {
-};
+// var divide = function(x, y) {
+// };
 
 // SKIP14. Find the greatest common divisor (gcd) of two positive numbers.  The GCD of two
 // integers is the greatest integer that divides both x and y with no remainder.
 // Example:  gcd(4,36);  // 4
 // http://www.cse.wustl.edu/~kjg/cse131/Notes/Recursion/recursion.html
 // https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
-var gcd = function(x, y) {
-};
+// var gcd = function(x, y) {
+// };
 
 // 15. Write a function that compares each character of two strings and returns true if
 // both are identical.
@@ -150,11 +180,27 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  if(str1.length === 0 && str2.length === 0){
+    return true;
+  }
+
+  if(str1[0] === str2[0]){
+    return(compareStr(str1.slice(1), str2.slice(1)))
+  } else {
+    return false;
+  }
+
+  
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str){
+var createArray = function(str, output=[]){
+if(str.length === 0){
+  return output;
+}
+output.push(str[0]);
+return createArray(str.slice(1))
 };
 
 // 17. Reverse the order of an array
@@ -182,28 +228,28 @@ var rMap = function(array, callback) {
 // var testobj = {'e': {'x':'y'}, 't':{'r': {'e':'r'}, 'p': {'y':'r'}},'y':'e'};
 // countKeysInObj(testobj, 'r') // 1
 // countKeysInObj(testobj, 'e') // 2
-var countKeysInObj = function(obj, key) {
-};
+// var countKeysInObj = function(obj, key) {
+// };
 
 // SKIP22. Write a function that counts the number of times a value occurs in an object.
 // var testobj = {'e': {'x':'y'}, 't':{'r': {'e':'r'}, 'p': {'y':'r'}},'y':'e'};
 // countValuesInObj(testobj, 'r') // 2
 // countValuesInObj(testobj, 'e') // 1
-var countValuesInObj = function(obj, value) {
-};
+// var countValuesInObj = function(obj, value) {
+// };
 
 // SKIP23. Find all keys in an object (and nested objects) by a provided name and rename
 // them to a provided new name while preserving the value stored at that key.
-var replaceKeysInObj = function(obj, key, newKey) {
-};
+// var replaceKeysInObj = function(obj, key, newKey) {
+// };
 
 // SKIP24. Get the first n Fibonacci numbers.  In the Fibonacci Sequence, each subsequent
 // number is the sum of the previous two.
 // Example:  0, 1, 1, 2, 3, 5, 8, 13, 21, 34.....
 // fibonacci(5);  // [0, 1, 1, 2, 3, 5]
 // Note:  The 0 is not counted.
-var fibonacci = function(n) {
-};
+// var fibonacci = function(n) {
+// };
 
 // 25. Return the Fibonacci number located at index n of the Fibonacci sequence.
 // [0,1,1,2,3,5,8,13,21]
@@ -233,13 +279,13 @@ var capitalizeFirst = function(array) {
 //   e: {e: {e: 2}, ee: 'car'}
 // };
 // nestedEvenSum(obj1); // 10
-var nestedEvenSum = function(obj) {
-};
+// var nestedEvenSum = function(obj) {
+// };
 
 // SKIP29. Flatten an array containing nested arrays.
 // Example: flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
-var flatten = function(arrays) {
-};
+// var flatten = function(arrays) {
+// };
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
@@ -257,8 +303,8 @@ var compress = function(list) {
 // SKIP32. Augment every element in a list with a new value where each element is an array
 // itself.
 // Example: augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
-var augmentElements = function(array, aug) {
-};
+// var augmentElements = function(array, aug) {
+// };
 
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
