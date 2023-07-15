@@ -118,14 +118,14 @@ return customers;
 }
 
 var topThreeTags = function(array){
-    let top = array.reduce((acc, curr) => {
+    let tagsArr = array.reduce((acc, curr) => {
         acc.push(curr.tags);
         return acc;
     }, [])
 
-    let tagCount = top.reduce((acc, curr) => {
-
-    }, 0)
+    let tagCount = tagsArr.reduce((acc, curr) => {
+        
+    }, {})
 };
 
 var genderCount = function(array){
