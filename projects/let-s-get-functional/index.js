@@ -62,7 +62,8 @@ var youngestCustomer= function(array){
 
 var averageBalance = function(array){
     let balsum = array.reduce((acc, curr) => {
-        acc += curr.balance;
+        let stringNum = parseFloat(curr.balance.slice(1).replace(/,/g, ''))
+        acc += stringNum;
         return acc;
     }, 0);
     let balnum = array.reduce((acc, curr) => {
@@ -118,14 +119,21 @@ return customers;
 }
 
 var topThreeTags = function(array){
-    let tagsArr = array.reduce((acc, curr) => {
-        acc.push(curr.tags);
-        return acc;
-    }, [])
-
-    let tagCount = tagsArr.reduce((acc, curr) => {
-        
-    }, {})
+    let allTags = []
+    array.forEach(customer => {
+        allTags.push(...customer.tags)
+    })
+    let tagCount = {}
+    allTags.forEach(tag => {
+        if(tagCount[tag]){
+            tagCount[tag]++
+        } else{
+            tagCount[tag] =1
+        }
+    })
+    let sorted = Object.entries(tagCount).sort((a, b) => b[1] - a[1]);
+    let topTags = sorted.slice(0, 3).map(([tag]) => tag);
+    return topTags;
 };
 
 var genderCount = function(array){
