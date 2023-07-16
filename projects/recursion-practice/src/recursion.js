@@ -125,8 +125,8 @@ return reverse(string.substring(0, string.length - 1), output)
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string, output='') { //this issue is that the else if statement is going to be true before we get 
   //the output created--figure out how to fix the else if statement
-  string = string.replace(/\s/g, '');
-  if(string.toLowerCase() === output.toLowerCase()){
+
+  if(string.replace(/\s/g, '').toLowerCase() === output.replace(/\s/g, '').toLowerCase()){
     return true;
   } else if (string.length === 0) {
     return false
@@ -331,7 +331,19 @@ var capitalizeFirst = function(array, output=[]) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
+var letterTally = function(str, obj={}) {
+let strArray = str.split('');
+if (strArray.length === 0){
+  return obj;
+} 
+
+if (strArray[0]) {
+  obj[strArray[0]] = (obj[strArray[0]] || 0) + 1;
+}
+
+
+return letterTally(str.slice(1), obj)
+
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
@@ -391,7 +403,44 @@ var alternateSign = function(array, index=0, output=[]) {
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+var numToText = function(str, output='') {
+  let strArray = str.split(' ');
+  if(str.length === ''){
+    return output;
+  }
+  // if(typeof Number(strArray[0]) === 'number'){
+  //  strArray[0] = Number(strArray[0])
+  // } else {
+  //   strArray[0] === strArray[0]
+  // }
+
+  if(strArray[0] === "0"){
+    strArray[0] === 'zero';
+  } else if(strArray[0] === "1"){
+    strArray[0] === 'one'
+  } else if(strArray[0] === "2"){
+    strArray[0] === 'two'
+  } else if(strArray[0] === "3"){
+    strArray[0] === 'three'
+  } else if(strArray[0] === "4"){
+    strArray[0] === 'four'
+  } else if(strArray[0] === "5"){
+    strArray[0] === 'five'
+  } else if(strArray[0] === "6"){
+    strArray[0] === 'six'
+  } else if(strArray[0] === "7"){
+    strArray[0] === 'seven'
+  } else if(strArray[0] === "8"){
+    strArray[0] === 'eight'
+  } else if(strArray[0] === "9"){
+    strArray[0] === 'nine'
+  } else {
+    strArray[0] === strArray[0]
+  }
+  output += strArray[0]
+  
+  return numToText(str.replace(strArray[0], ''), output)
+
 };
 
 // *** EXTRA CREDIT ***
