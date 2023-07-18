@@ -48,7 +48,7 @@ return results;
 function reverseArray(array) { //HW
 let reverse = [];
 
-for(let i = array.length; i > 0; i--){
+for(let i = array.length - 1; i >= 0; i--){
   reverse.push(array[i])
 }
 return reverse;
@@ -58,8 +58,8 @@ return reverse;
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() { //HW
-
+function reverseArrayInPlace(arr) { 
+ 
 }
 
 ////////////////////////////////////////////////////////////////////////////////
