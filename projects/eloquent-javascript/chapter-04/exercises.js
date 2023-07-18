@@ -2,24 +2,26 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-// function range(num1, num2, step) { //HW
-//   let rangeArr = []
-// if(step === ''){
-//   if(num1 === num2){
-//     return [];
-//   } else {
-//     for(let i = num1; i <= num2; i++){
-//       rangeArr.push(i)
-//     }
-//   }
-// } else {
-//   for(let i = num1; i <= num2; i++){
-//     i += step;
-//     rangeArr.push(i);
-//   }
-// } 
-// return rangeArr;
-// }
+function range(num1, num2, step) { //HW
+  let results = [];
+  if(num1 === num2){
+    return [];
+  }
+
+  if (!step){
+  for(let i = num1; i <= num2; i++){
+    results.push(i);
+  }
+  return results;
+ } else if(step > 0){
+  for(let i = num1; i <= num2; i+=step){
+    results.push(i);
+ }
+ return results;
+} else if(step < 0){
+  return [];
+}
+}
 
 
 
@@ -27,8 +29,16 @@
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
-
+function sum(array) {
+  let results = 0;
+if(array === []){
+  return 0;
+} else{
+for(let i = 0; i < array.length; i++){
+results += array[i];
+}
+}
+return results;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -37,7 +47,8 @@ function sum() {
 
 function reverseArray(array) { //HW
 let reverse = [];
-for(let i = array.length; i >= 0; i--){
+
+for(let i = array.length; i > 0; i--){
   reverse.push(array[i])
 }
 return reverse;
