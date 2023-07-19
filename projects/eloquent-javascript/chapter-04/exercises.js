@@ -59,7 +59,17 @@ return reverse;
 ////////////////////////////////////////////////////////////////////////////////
 
 function reverseArrayInPlace(arr) { 
- 
+ //tempElem = first
+ //first = last
+ //last = tempElem
+
+ let tempElem;
+ for(let i = 0; i < arr.length / 2; i++){
+    tempElem = arr[i];
+    arr[i] = arr[arr.length - 1 - i]
+    arr[arr.length - 1 - i] = tempElem
+ }
+ return arr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -95,8 +105,9 @@ return listToArray(list.rest, output)
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
-
+function prepend(element, list) {
+var newList = {value: element, rest: list};
+return newList;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -123,7 +134,7 @@ function deepEqual(x, y) {
 if(typeof x !== 'object' && y !== 'object'){
   return x === y;
 } 
-if(typeof x !== 'object' || y !== 'object'){
+if(typeof x !== 'object' || typeof y !== 'object'){
 return false;
 } 
 
