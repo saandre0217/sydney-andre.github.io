@@ -103,7 +103,15 @@ function prepend() {
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
+function nth(list, n) {
+//base
+if (n === 0) {
+return list.value;
+} if(n < 0){
+  return undefined;
+}
+//recursion
+return nth(list.rest, n - 1)
 
 }
 
@@ -111,8 +119,26 @@ function nth() {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
+function deepEqual(x, y) {
+if(typeof x !== 'object' && y !== 'object'){
+  return x === y;
+} 
+if(typeof x !== 'object' || y !== 'object'){
+return false;
+} 
 
+let xKeys = Object.keys(x);
+let yKeys =Object.keys(y);
+
+if(xKeys.length !== yKeys.length){
+  return false;
+}
+for(let i = 0; i < xKeys.length; i++){
+  if(!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[xKeys[i]])){
+    return false;
+  }
+}
+return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
