@@ -16,23 +16,69 @@ function flatten(array) {
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop() {
+function loop(value, test, update, body) {
+  if(test(value)){
+    body(value)
+  } else {
+    return;
+  }
+  
 
-}
+  value = update(value)
+
+  return loop(value, test, update, body)
+
+  }
+
+
+
+
 
 // /////////////////////////////////////////////////////////////////////////////
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function every() {
-
+function every(array, func) {
+  if(!func){
+    for(let i = 0; i < array.length; i++){
+        if(!array[i]){
+            return false;
+        } 
+    }
+} else {
+    for(let i = 0; i < array.length; i++){
+        if(!func(array[i], i, array)){
+            return false;
+        } 
+    }
+}
+return true;
 }
 
 // /////////////////////////////////////////////////////////////////////////////
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(string) {
+let ltr = [];
+let rtl = [];
+
+for(let i = 0; i < string.length; i++){
+  let script = characterScript(string.charCodeAt(i));
+
+  if(script !== null){
+    if(script.direction === 'ltr'){
+      ltr.push(script)
+    } else{
+      rtl.push(script)
+    }
+  } 
+}
+if(ltr.length > rtl.length){
+  return 'ltr';
+} else{
+  return 'rtl';
+}
 
 }
 
