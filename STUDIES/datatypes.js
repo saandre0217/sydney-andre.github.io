@@ -76,14 +76,29 @@ console.log(findX()) //returns null
  */
 Number('hello');
 //IFINITY & -INFINITY//
+/* Infinity adn Negative Infinity are constant values used to represent the highest and 
+lowest available values. Negative infinity is different from infinity in the following ways:
+Negative infinity results in -0(different from 0 ) when divided by any other number.
+When divided by itself or positive infinity, negative infinity return NaN
+ */
+
 //SIMPLE vs COMPLEX DATA TYPES//
+    //simple data types refer to data types that only hold one value. Below is an example of a number
+    //data type which is an example of a simple data type. Complex data types differ from simple because they
+    //can hold an unlimited number of values of different types. The variable complexNumber is pointing to an array
+    //of numbers which is an example of a complex data type holding multiple simple data values
+    let simpleNumber = 9
+    let complexNumber = [1, 2, 3, 4, 5]
 //COPY BY VALUE vs COPY BY REFERENCE//
-    //copy by value
+    //below is an example of copy by value. Because it is a simple data type, when the variable b is
+    //initalized to point to the variable a, changing the value of b does not change the value of a
 let a = 6;
 let b = a;
 b = 7;
 console.log(a) //logs 6
-    //below is an example of copy by reference. 
+    //below is an example of copy by reference. Because it is a complex data type,
+    //when variable y is iniatlized to point to the variable x, changing the properties of y will
+    //change the properties of x
 let x ={
     name: 'syd'
 }
