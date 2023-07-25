@@ -1,6 +1,7 @@
 /*
 FUNCTIONS
-0.
+0. Functions are reusable blocks of code that acecept inputs, process those inputs, and return new data values. Functions
+have four key elements: name, parameters, function body, and return statement.
 1. The 2 phases of a function: First we must *define the function*
 Next we can execute or *call or invoke* a function
 2. What's the difference between a functions parameteres and arguments 
@@ -19,6 +20,11 @@ PASSED to a function?
     //to specify inputs you must define the function with parameters. To specify 
     the outputs you must use a return statement followed by the output you want 
     to return
+6. Understanding variable scope is very important in understanding how to use functions properly. Because they can only
+use the variables declared in the global or parent scope, you have to be careful on what variables you return or use within
+the function body
+7. Closures are important in understanding how to use high-order functions because the data from the first function call
+must be stored to be used in the second function call
  */
 
 //1. 2 phases to using functions//
@@ -51,3 +57,35 @@ let logGreater = function(x,y){
     }
 }
 logGreater(8, 72)
+//5. Function without inputs or outputs
+function alwaysSix(){
+    3 + 3;
+}
+    //becuase this function does not have parameters, the function cannot be flexible because the input values cannot change
+    //because this function does not have a return statement, it will always return undefined
+function add(x, y){
+    return x + y;
+}
+    //this function has parameters and a return value, meaning it can add any two number and will return that sum
+//6. Scope
+let hour = 12
+function clock(time){
+    if(time < 12){
+        let message = 'good morning'
+    } else if(time >= 12 || time < 17){
+        let message = 'good afternoon'
+    } else if(time >= 17 || time <= 24){
+        let message = 'good night'
+    }
+}
+clock(hour)
+console.log(message) //this will log an error because the variables have been initialized inside the function scope
+//if the variable message would have been initalized using the var keyword, you would be able to log the variable 
+//7. Closure
+function outer(x){
+    return function inner(y){
+        return x + y;
+    }
+}
+let outerX = outer(6);
+console.log(outerX(7)) //this will log 13 because 6 has been stored through closure 
