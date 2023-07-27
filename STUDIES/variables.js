@@ -56,6 +56,11 @@ stage would result in undefined being logged to the console. */
     console.log(myFriend); // prints Hayden
     let emptyObj = {};
     console.log(emptyObj) //prints nothing, no error
+    function printSomething(){ //example of block scoping
+        let something = 'hello'
+        console.log(something);
+    }
+    console.log(something) //returns error--variable not defined
 //const: cannot be redeclared, reassigned, or declared without a value. Can be blockscoped
     const favFood = 'burrito';
     const favFood = 'pancakes'; //cannot be redeclared
@@ -64,6 +69,11 @@ stage would result in undefined being logged to the console. */
     console.log(favFood); //prints error: Assignment to constant variable.
     const constantVar = 'Hey!'
     console.log(constantVar) //prints Hey!
+    function printNumber(){ //example of block scoping
+        const number = 7
+        console.log(number);
+    }
+    console.log(number)// returns error--variable not defined
 // 3. Hoisting //
 /**
  * below is an example of a program that will run without errors because of hoisting. Even though the

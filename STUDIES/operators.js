@@ -18,15 +18,66 @@
  */
 
 //1. Assignment Operators
+    //assignment operator
 let x = 5 
-x += 7
-console.log(x) //12 will log because the += add 7 to the original variable and then assigns the varibale to the new sum
+    //addition assignment operator
+x += 2 // x = 7
+    //subtraction assignment operator
+x -= 1 //x = 6
+    //multiplication assignment operator
+x *= 3 //x = 18
+    //division assignment operator
+x /= 2 //x = 9
+    //remainder assignment operator
+x %= 2 // x = 1 
+    //expontiation assignment
+let y = 4
+y **= 2 // y = 16
+    //logical AND assignment: only assigns if x is truthy
+y &&= 4 // y = 4
+    //logical OR assignment: only assigns if x is falsy
+let z = null
+z ||= 7 // z = 7
 //2. Arithmetic Operators 
+    //addition operator
 let num1 = 100;
-let num2 = 65;
+let num2 = 50;
+let sum = num1 + num2 
+console.log(sum) //logs 150
+    //subtraction operator
+let diff = num1 - num2
+console.log(diff) //logs 50
+    //division operator
+let quot = num1 / num2
+console.log(quot) //logs 2
+    //multiplication operator
 let product = num1 * num2
-console.log(product) //6500 will log because num1 is pointing to 100 and num2 is pointing to 65. The product variable is pointing
-//to those variables multiplied together
+console.log(product) //5000 will log 
+    //remainder operator: return the integery remainder of dividing 2 operands
+let leftovers = 11 % 2
+console.log(leftovers) //logs 1 to the console
+    //increment operator: adds 1 to its operand
+let a = 7
+a++
+console.log(a) //logs 8
+    //decrement operator
+a--
+console.log(a) //logs 7
+    //unary negation operator: returns the negative version of its operand
+let b = 4
+b = -b
+console.log(b) //logs -4
+let c = -8
+c = -c
+console.log(c) //logs 8
+    //unary plus operator: tries to convert the operand to a number if it isn't already
+let three = +'3'
+console.log(three) //logs 3
+three = +'three'
+console.log(three) //logs NaN
+    //exponentiation operator: returns the base to the exponent power
+let squared = 4 ** 2
+console.log(squared) //logs 16
 //3. Comparison Operators
 console.log('6' == 6) //true will log because using the equal to operators does not access the datatype
 console.log('6' === 6) //false will log because the strictly equal to operator assesses whether the 2 values are exactly the same

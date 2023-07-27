@@ -55,3 +55,9 @@ for(let key in obj){
 for(let key in obj){
     console.log(obj[key])
 }
+//while loop: loop backward counting down to 0//
+let count = 9
+while(count >= 0){
+    console.log(count)
+    count--
+} //will log 9 to 0
